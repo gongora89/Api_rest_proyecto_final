@@ -14,7 +14,7 @@ You can clone this repo as starter project for your Express, MongoDB API server
 
 - [Node](https://nodejs.org/en)
 - [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/cloud)
+- [MongoDB - Cloud](https://www.mongodb.com/cloud)
 - [Mongoose](https://mongoosejs.com)
 
 ## Installation and Running App :zap:
@@ -41,3 +41,5 @@ You can clone this repo as starter project for your Express, MongoDB API server
 **4.** **🎉 Open postman and test the rest api on this url `https://127.0.0.1:3200`**
 
 Remember that the .env file must be created for the API to work.
+
+**Follow the steps of the Steps presentation in the repository -**
