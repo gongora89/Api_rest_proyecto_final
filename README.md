@@ -7,7 +7,7 @@ You can clone this repo as starter project for your Express, MongoDB API server
 ## Features and Functionalities 😃
 
 - Node, Express, MongoDB, Mongoose as ODM Basic REST API
-- CRUD Operations (Controller for this)
+- CRUD Operations (A Controller for this)
 - NoSQL for database: Document-oriented MongoDB
 
 ## Tech Stack 💻
@@ -41,5 +41,12 @@ You can clone this repo as starter project for your Express, MongoDB API server
 **4.** **🎉 Open postman and test the rest api on this url `https://127.0.0.1:3200`**
 
 Remember that the .env file must be created for the API to work.
+
+Additionally this project uses: 
+
+- [Nodemon](https://nodemon.io)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Eslint](https://eslint.org)
 
 **Follow the steps of the Steps presentation in the repository -**
