@@ -10,7 +10,7 @@ router.post('/post', async (req, res) => {
 	})
 	try {
 		const dataToSave = await data.save() // Mongoose method
-		res.status(200).json(dataToSave)
+		res.status(201).json(dataToSave)
 	} catch (error) {
 		res.status(400).json({ message: error.message })
 	}
@@ -32,7 +32,7 @@ router.get('/getOne/:id', async (req, res) => {
 		const data = await Model.findById(req.params.id) // Mongoose method
 		res.json(data)
 	} catch (error) {
-		res.status(500).json({ message: error.message })
+		res.status(404).json({ message: error.message, info: `No se encuentra el id ${req.params.id}`, data: null })
 	}
 })
 
@@ -48,7 +48,7 @@ router.patch('/update/:id', async (req, res) => {
 		)
 		res.send(result)
 	} catch (error) {
-		res.status(500).json({ message: error.message })
+		res.status(404).json({ message: error.message, info: `No se encuentra el id ${req.params.id}` })
 	}
 })
 
@@ -59,7 +59,7 @@ router.delete('/delete/:id', async (req, res) => {
 		const data = await Model.findByIdAndDelete(id) // Mongoose method
 		res.send(`Document with name ${data.name} has been deleted...`)
 	} catch (error) {
-		res.status(400).json({ message: error.message })
+		res.status(404).json({ message: error.message, info: `No se encuentra el id ${req.params.id}` })
 	}
 })
 

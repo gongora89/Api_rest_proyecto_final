@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Node.js con Express y MongoDB",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:{port}",
+      "description": "Servidor local",
+      "variables": {
+        "port": {
+          "default": "3200"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/api/post": {
+      "post": {
+        "summary": "Crea un nuevo documento",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Data"
+              },
+              "examples": {
+                "example1": {
+                  "value": {
+                    "name": "John Doe",
+                    "age": 30
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Documento creado exitosamente"
+          },
+          "400": {
+            "description": "Error al crear el documento"
+          }
+        }
+      }
+    },
+    "/api/getAll": {
+      "get": {
+        "summary": "Obtiene todos los documentos",
+        "responses": {
+          "200": {
+            "description": "Operación exitosa"
+          },
+          "500": {
+            "description": "Error del servidor"
+          }
+        }
+      }
+    },
+    "/api/getOne/{id}": {
+      "get": {
+        "summary": "Obtiene un documento por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "655639aba2b81a7d39fc13a2"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa"
+          },
+          "404": {
+            "description": "Documento no encontrado"
+          }
+        }
+      }
+    },
+    "/api/update/{id}": {
+      "patch": {
+        "summary": "Actualiza un documento por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "655639aba2b81a7d39fc13a2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Data"
+              },
+              "examples": {
+                "example1": {
+                  "value": {
+                    "name": "Jane Doe",
+                    "age": 25
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Documento actualizado exitosamente"
+          },
+          "404": {
+            "description": "Documento no encontrado"
+          }
+        }
+      }
+    },
+    "/api/delete/{id}": {
+      "delete": {
+        "summary": "Elimina un documento por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "example1": {
+                "value": "655639aba2b81a7d39fc13a2"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Documento eliminado exitosamente"
+          },
+          "404": {
+            "description": "Documento no encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Data": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre del documento"
+          },
+          "age": {
+            "type": "number",
+            "description": "Edad del documento"
+          }
+        },
+        "required": [
+          "name",
+          "age"
+        ]
+      }
+    }
+  }
+}
