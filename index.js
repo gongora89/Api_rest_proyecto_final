@@ -28,7 +28,8 @@ app.use(express.json())
 const routes = require('./src/routes/routes')
 
 app.get('/', (req, res) => {
-	res.send(`Welcome! Go to /api-docs to see the documentation`)
+	res.type('text/plain')
+	res.status(200).send('Welcome! Go to /api-docs to see the documentation')
 })
 app.use('/api', routes)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
