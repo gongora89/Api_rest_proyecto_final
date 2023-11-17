@@ -26,7 +26,7 @@
                 "$ref": "#/components/schemas/Data"
               },
               "examples": {
-                "example1": {
+                "example-1": {
                   "value": {
                     "name": "John Doe",
                     "age": 30
@@ -39,7 +39,24 @@
         },
         "responses": {
           "201": {
-            "description": "Documento creado exitosamente"
+            "description": "Documento creado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Data"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "name": "John Doe",
+                      "age": 30,
+                      "_id": "655639aba2b81a7d39fc13a2",
+                      "__v": 0
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Error al crear el documento"
@@ -52,7 +69,35 @@
         "summary": "Obtiene todos los documentos",
         "responses": {
           "200": {
-            "description": "Operación exitosa"
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Data"
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": [
+                      {
+                        "_id": "655639aba2b81a7d39fc13a2",
+                        "name": "John Doe",
+                        "age": 30,
+                        "__v": 0
+                      },
+                      {
+                        "_id": "655639aba2b81a7d39fc13a3",
+                        "name": "Jane Doe",
+                        "age": 25,
+                        "__v": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Error del servidor"
@@ -72,7 +117,7 @@
               "type": "string"
             },
             "examples": {
-              "example1": {
+              "example-1": {
                 "value": "655639aba2b81a7d39fc13a2"
               }
             }
@@ -80,7 +125,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Operación exitosa"
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Data"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "_id": "655639aba2b81a7d39fc13a2",
+                      "name": "John Doe",
+                      "age": 30,
+                      "__v": 0
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Documento no encontrado"
@@ -100,7 +162,7 @@
               "type": "string"
             },
             "examples": {
-              "example1": {
+              "example-1": {
                 "value": "655639aba2b81a7d39fc13a2"
               }
             }
@@ -113,9 +175,9 @@
                 "$ref": "#/components/schemas/Data"
               },
               "examples": {
-                "example1": {
+                "example-1": {
                   "value": {
-                    "name": "Jane Doe",
+                    "name": "Liam Doe",
                     "age": 25
                   }
                 }
@@ -126,7 +188,24 @@
         },
         "responses": {
           "200": {
-            "description": "Documento actualizado exitosamente"
+            "description": "Documento actualizado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Data"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "_id": "655639aba2b81a7d39fc13a2",
+                      "name": "Liam Doe",
+                      "age": 25,
+                      "__v": 0
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Documento no encontrado"
@@ -146,7 +225,7 @@
               "type": "string"
             },
             "examples": {
-              "example1": {
+              "example-1": {
                 "value": "655639aba2b81a7d39fc13a2"
               }
             }
@@ -154,7 +233,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Documento eliminado exitosamente"
+            "description": "Documento eliminado exitosamente",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "Document with name Jane Doe has been deleted..."
+                }
+              }
+            }
           },
           "404": {
             "description": "Documento no encontrado"
